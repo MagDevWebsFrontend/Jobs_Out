@@ -1,0 +1,75 @@
+# ============================
+# Node.js
+# ============================
+
+# ============================
+# Dependencias
+# ============================
+/node_modules
+
+# ============================
+# Logs
+# ============================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs
+*.log
+
+# ============================
+# Archivos temporales
+# ============================
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# ============================
+# Build / compilación
+# ============================
+dist/
+build/
+.cache
+.tmp
+.temp
+
+# ============================
+# Entornos
+# ============================
+.env
+.env.local
+.env.*.local
+
+# ============================
+# Sequelize (CLI)
+# ============================
+# Archivos generados que no deben subirse
+src/migrations/*.js.map
+src/seeders/*.js.map
+
+# ============================
+# Si usas SQLite (para dev/test)
+# ============================
+*.sqlite
+*.sqlite3
+
+# ============================
+# Tests / Cobertura
+# ============================
+coverage/
+*.lcov
+
+# ============================
+# Configuración de IDEs
+# ============================
+.vscode/
+.idea/
+*.iml
+
+# ============================
+# Sistema operativo
+# ============================
+.DS_Store
+Thumbs.db
