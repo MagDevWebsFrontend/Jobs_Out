@@ -1,22 +1,27 @@
 require("dotenv").config();
-const app = require("./app"); // Importa la app ya configurada
-const sequelize = require("./config/database");
+const app = require("./app");
+const sequelize = require("./src/config/database");
 
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {
   try {
+    // Conectar a la BD
     await sequelize.authenticate();
     console.log("✅ Conexión a la base de datos exitosa");
 
-    await sequelize.sync({ alter: true }); // O { force: true } solo en desarrollo
+    // Sincronizar modelos (⚠️ cuidado con force: true en prod)
+    // await sequelize.sync({ force: false });
     console.log("📦 Modelos sincronizados");
 
+    // Levantar servidor
     app.listen(PORT, () => {
-      console.log(`🚀 Servidor iniciado en el puerto ${PORT}`);
+      console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
     });
+
   } catch (error) {
     console.error("❌ Error al iniciar el servidor:", error);
+    process.exit(1);
   }
 }
 
