@@ -1,15 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const contactoCtrl = require('../controllers/trabajo_contacto.controller');
-
-router.get('/', async (req, res) => {
-  try {
-    const contactos = await contactoCtrl.contactosAll();
-    res.json(contactos);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+const contactoCtrl = require('../controllers/contacto_trabajo.controller');
 
 router.get('/:trabajo_id', async (req, res) => {
   try {
