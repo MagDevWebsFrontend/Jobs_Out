@@ -1,6 +1,9 @@
 const { TrabajoContacto } = require('../models');
 
 module.exports = {
+  
+  
+  
   insertarContacto: async (datos) => {
     try {
       return await TrabajoContacto.create(datos);
@@ -32,6 +35,15 @@ module.exports = {
   contactos: async (id_trabajo) => {
     try {
       return await TrabajoContacto.findAll({ where: { trabajo_id: id_trabajo } });
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  contactosAll: async () => {
+    try {
+      console.log("get() --> Lista de contactos_Trabajos");
+      return await TrabajoContacto.findAll();
     } catch (error) {
       throw error;
     }
